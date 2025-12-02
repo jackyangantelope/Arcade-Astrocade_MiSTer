@@ -98,9 +98,10 @@ module emu
 	input  [11:0] HDMI_HEIGHT,
 	output        HDMI_FREEZE,
 	output        HDMI_BLACKOUT,
-	
-`ifdef MISTER_FB	
-	// Use framebuffer from DDRAM (USE_FB=1 in qsf)
+	output        HDMI_BOB_DEINT,
+
+`ifdef MISTER_FB
+	// Use framebuffer in DDRAM
 	// FB_FORMAT:
 	//    [2:0] : 011=8bpp(palette) 100=16bpp 101=24bpp 110=32bpp
 	//    [3]   : 0=16bits 565 1=16bits 1555
@@ -219,6 +220,7 @@ assign VGA_SCALER  = 0;
 assign VGA_DISABLE = 0;
 assign HDMI_FREEZE = 0;
 assign HDMI_BLACKOUT = 0;
+assign HDMI_BOB_DEINT = 0;
 assign FB_FORCE_BLANK = 0;
 
 assign ADC_BUS  = 'Z;
